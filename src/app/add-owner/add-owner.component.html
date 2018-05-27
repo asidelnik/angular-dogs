@@ -8,7 +8,7 @@
       <input matInput placeholder="Owner Age" [(ngModel)]="ownerAge" name="age">
     </mat-form-field>
 
-    <mat-checkbox>Dangerous dog license</mat-checkbox>
+    <mat-checkbox [(ngModel)]="dogLicense" name="license" onchange="AddOwnerComponent.logLicense()">Dangerous dog license</mat-checkbox>
 
     <!-- <mat-checkbox [(ngModel)]="dogLicense" name="license">Dangerous dog license</mat-checkbox> -->
 

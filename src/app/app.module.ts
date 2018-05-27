@@ -12,7 +12,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AppComponent } from './app.component';
 import { AddDogComponent } from './add-dog/add-dog.component';
 import { AddOwnerComponent } from './add-owner/add-owner.component';
-// import { CheckboxComponent } from './checkbox/checkbox.component';
 
 
 @NgModule({
@@ -20,7 +19,6 @@ import { AddOwnerComponent } from './add-owner/add-owner.component';
       AppComponent,
       AddDogComponent,
       AddOwnerComponent
-      //CheckboxComponent
       ],
    imports: [
       BrowserModule,
