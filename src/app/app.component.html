@@ -2,6 +2,28 @@
   <span>AngularDogs</span>
   <span class="fill-remaining-space" color="accent"></span>
 </mat-toolbar>
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<h1>
+  Welcome to {{ title }}!
+</h1>
+<div>
+  <label>Dog name
+     <br>
+    <input type="text" [(ngModel)]="dogName" placeholder="Name">
+  </label>
+  <br><br>
+  <label>Dog weight
+      <br>
+    <input type="text" placeholder="Weight">
+  </label>
+  <br><br>
+  <label>Owner name
+      <br>
+    <input type="text" [(ngModel)]="ownerName" placeholder="Owner">
+  </label>
+</div>
+<br><hr>
+<h3>Dog: {{ dogName }}</h3>
+<p>Owner: {{ ownerName }}</p>
+<img src="{{ dayDogPic }}" alt="Day Dog Picture" width="100px;">
+<!-- <img ng-src="{{imagePath}}"> -->
+
