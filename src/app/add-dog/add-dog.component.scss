@@ -1,6 +1,12 @@
 .content-container {
    display: grid;
    grid-template-columns: 75% 25%;
+   border: 1px solid red; 
+   // style=""
+   
+   h3 {
+      display: block;
+   }
 
    .form {
        grid-column: 1 / 1;

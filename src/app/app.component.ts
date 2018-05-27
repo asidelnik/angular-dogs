@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+   title: string = "my dog site";
+}
+
+
 //   title: string = 'AngularDogs';
 //   dogName: string = 'Rex';
 //   dogWeight: number = 35;
@@ -22,4 +26,4 @@ export class AppComponent {
 //       this.imageUrl = 'http://imgsrv.wkdzradio.com/image/wkdz4/UserFiles/Image/Dog%20Day1.jpg';
 //     }
 //   }
-}
+

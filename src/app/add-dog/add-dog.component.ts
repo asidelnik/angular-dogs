@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 
 export class AddDogComponent implements OnInit {
    title: string = 'AngularDogs';
-   dogName: string = 'Rex';
-   dogWeight: number = 35;
-   ownerName: string = 'John';
+   dogName: string; // = 'Rex';
+   dogWeight: number; // = 35;
+   ownerName: string; // = 'John';
    imageUrl: string;
 
    constructor() {

@@ -1,27 +1,31 @@
 <div class="content-container">
-  <div class="form">
-    <h3>Current Dog: {{ dogName }}</h3>
-    <h3>Current Dog Owner: {{ ownerName }}</h3>
 
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Dog Name" [(ngModel)]="dogName" name="name">
-      </mat-form-field>
+  <h3>Current Dog: {{ dogName }}</h3>
+  <h3>Current Dog Owner: {{ ownerName }}</h3>
 
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Dog Age" [(ngModel)]="dogWeight" name="age">
-      </mat-form-field>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Dog Name" [(ngModel)]="dogName" name="name">
+    </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Owner Name" [(ngModel)]="ownerName" name="owner">
-      </mat-form-field>
-    </form>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Dog Weight" name="weight">
+    </mat-form-field>
 
-    <!-- <input type="text" [(ngModel)]="dogName" name="name" placeholder="Dog Name" />
-    <input type="text" [(ngModel)]="dogWeight" name="weight" placeholder="Dog Age" />
-    <input type="text" [(ngModel)]="ownerName" name="owner" placeholder="Owner Name" /> -->
-  </div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Owner Name" [(ngModel)]="ownerName" name="owner">
+    </mat-form-field>
+  </form>
 
-  <img class="img-dog" src="{{ imageUrl }}" />
+  <!-- <img class="img-dog" src="{{ imageUrl }}" /> -->
 
 </div>
+
+
+<!-- 
+   <div class="form"></div>
+      <input type="text" [(ngModel)]="dogName" name="name" placeholder="Dog Name" />
+      <input type="text" [(ngModel)]="dogWeight" name="weight" placeholder="Dog Age" />
+      <input type="text" [(ngModel)]="ownerName" name="owner" placeholder="Owner Name" />
+   </div> 
+   -->
