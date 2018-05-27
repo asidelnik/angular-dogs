@@ -2,21 +2,20 @@
   <span>AngularDogs</span>
   <span class="fill-remaining-space" color="accent"></span>
 </mat-toolbar>
+
+<div class="content-container">
   <h1>
     Welcome to {{ title }}!
   </h1>
 
-  <div class="content-container">
-    <div class="form">
-        <h3>Current Dog: {{ dogName }}</h3>
-        <h3>Current Dog Owner: {{ ownerName }}</h3>
-      
-        <input type="text" [(ngModel)]="dogName" name="name" placeholder="Dog Name"/>
-        <input type="text" [(ngModel)]="dogWeight" name="weight" placeholder="Dog Age" />
-        <input type="text" [(ngModel)]="ownerName" name="owner" placeholder="Owner" />
-    </div>
+  <app-add-dog></app-add-dog>
+  <app-add-owner></app-add-owner>
+  <!-- <app-checkbox></app-checkbox> -->
+  <iframe src="https://player.vimeo.com/video/197933516" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
 
-    <img class="img-dog" src="{{ imageUrl }}" />
-    
-  </div>
-  
+
+
+
+
+<!-- add a text input that inside add a url, add a youtube component -->
