@@ -6,6 +6,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 import { AppComponent } from './app.component';
 import { AddDogComponent } from './add-dog/add-dog.component';
@@ -21,7 +22,8 @@ import { DogsComponentComponent } from './dogs-component/dogs-component.componen
       MatCheckboxModule,
       FormsModule,
       MatCardModule,
-      MatButtonModule
+      MatButtonModule,
+      MatButtonToggleModule
    ],
    declarations: [
       AppComponent,

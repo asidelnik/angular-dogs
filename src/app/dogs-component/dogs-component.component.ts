@@ -15,6 +15,10 @@ const DOGS = [
 })
 export class DogsComponentComponent implements OnInit {
    dogs: Array<any> = DOGS;
+   dateFormat: string = 'long';
+   longDate: boolean = true;
+   shortDate: boolean = false;
+
 
    constructor() { }
 
@@ -23,6 +27,16 @@ export class DogsComponentComponent implements OnInit {
 
    removeDog(index) {
       this.dogs.splice(index, 1);
+   }
+   toggleLongDate() {
+      this.dateFormat = 'long';
+      this.longDate = true;
+      this.shortDate = false;
+   }
+   toggleShortDate() {
+      this.dateFormat = 'short';
+      this.longDate = false;
+      this.shortDate = true;
    }
 
 }

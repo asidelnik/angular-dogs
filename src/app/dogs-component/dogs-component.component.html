@@ -1,10 +1,16 @@
 <div class="flex-container">
   <mat-card *ngFor="let dog of dogs; let idx = index">
-    <span>
-       {{idx + 1}}) {{dog.name | uppercase}} - {{dog.weight}}kgs - {{dog.birthDate | date:"MM/dd/yy"}} - owned by {{ dog.owner}}
-    </span>
+     <p>{{idx + 1}}</p>
+     <p>{{dog.name | uppercase}}</p>
+     <p>{{dog.weight}}kgs</p>
+     <p>{{ dog.birthDate | date:{{dateFormat}} }}</p>
+     <p>Owned by {{ dog.owner}}</p>
+    <br><br>
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle value="long" *ngIf="shortDate == true" (click)="toggleLongDate()">+</mat-button-toggle>
+      <mat-button-toggle value="short" *ngIf="longDate == true" (click)="toggleShortDate()">-</mat-button-toggle>
+    </mat-button-toggle-group>
     <br><br>
     <button mat-button mat-stroked-button (click)="removeDog(idx)">Delete {{dog.name | uppercase}}</button>
   </mat-card>
 </div>
-
