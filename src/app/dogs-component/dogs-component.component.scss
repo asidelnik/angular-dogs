@@ -1,4 +1,8 @@
 .flex-container {
    display: flex;
-   background-color: DodgerBlue;
+   background-color: gray;
+
+   mat-card {
+      margin: 20px;
+   }
  }

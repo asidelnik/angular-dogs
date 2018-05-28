@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatToolbarModule} from '@angular/material/toolbar';
-import {MatInputModule} from '@angular/material/input';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatCardModule} from '@angular/material/card';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { AddDogComponent } from './add-dog/add-dog.component';
@@ -14,21 +13,21 @@ import { DogsComponentComponent } from './dogs-component/dogs-component.componen
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AddDogComponent,
-    AddOwnerComponent,
-    DogsComponentComponent
-  ],
-  imports: [
-    BrowserModule,
-    MatToolbarModule,
-    MatInputModule,
-    MatCheckboxModule,
-    FormsModule,
-    MatCardModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   imports: [
+      BrowserModule,
+      MatToolbarModule,
+      MatInputModule,
+      MatCheckboxModule,
+      FormsModule,
+      MatCardModule
+   ],
+   declarations: [
+      AppComponent,
+      AddDogComponent,
+      AddOwnerComponent,
+      DogsComponentComponent
+   ],
+   providers: [],
+   bootstrap: [AppComponent]
 })
 export class AppModule { }
