@@ -15,7 +15,6 @@ export class AddDogComponent implements OnInit {
    imageUrl: string;
 
    constructor(private dogsService: DogsService) {
-      this.dogs = dogsService.getDogs();
       var currentDate = new Date();
       if (currentDate.getHours() > 21 && currentDate.getHours() <= 6) {
          this.imageUrl = 'https://besthqwallpapers.com/Uploads/22-1-2018/37943/thumb2-4k-moon-dog-night-digital-art.jpg';
