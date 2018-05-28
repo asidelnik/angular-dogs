@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AddDogComponent } from './add-dog/add-dog.component';
 import { AddOwnerComponent } from './add-owner/add-owner.component';
+import { DogsComponentComponent } from './dogs-component/dogs-component.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AddDogComponent,
-    AddOwnerComponent
+    AddOwnerComponent,
+    DogsComponentComponent
   ],
   imports: [
     BrowserModule,
