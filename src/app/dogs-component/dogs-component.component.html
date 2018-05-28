@@ -3,7 +3,7 @@
      <p>{{idx + 1}}</p>
      <p>{{dog.name | uppercase}}</p>
      <p>{{dog.weight}}kgs</p>
-     <p>{{ dog.birthDate | date:{{dateFormat}} }}</p>
+     <p>{{ dog.birthDate | date:dateFormat }}</p>
      <p>Owned by {{ dog.owner}}</p>
     <br><br>
     <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
