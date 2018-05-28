@@ -1,5 +1,9 @@
+
+// View - Show all dogs
+
 import { Component, OnInit } from '@angular/core';
 import { DogsService } from '../dogs.service';
+import { Dog } from '../dog';
 
 @Component({
    selector: 'app-dogs',

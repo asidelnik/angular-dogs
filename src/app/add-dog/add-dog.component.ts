@@ -1,5 +1,9 @@
+
+// Controller - Add Dog
+
 import { Component, OnInit } from '@angular/core';
 import { DogsService } from '../dogs.service';
+import { Dog } from '../dog';
 
 @Component({
    selector: 'app-add-dog',
@@ -8,13 +12,12 @@ import { DogsService } from '../dogs.service';
 })
 export class AddDogComponent implements OnInit {
 
-   title: string = 'AngularDogs';
-   dogName: string = 'Rex';
-   dogWeight: number;
-   ownerName: string = 'John Doe';
+   title: string;
    imageUrl: string;
+   dog: Dog = new Dog('Rex',0,null,"John Doe");
 
    constructor(private dogsService: DogsService) {
+      
       var currentDate = new Date();
       if (currentDate.getHours() > 21 && currentDate.getHours() <= 6) {
          this.imageUrl = 'https://besthqwallpapers.com/Uploads/22-1-2018/37943/thumb2-4k-moon-dog-night-digital-art.jpg';
@@ -26,13 +29,9 @@ export class AddDogComponent implements OnInit {
 
    ngOnInit() {
    }
-
+   
    submitDog() {
-      this.dogsService.addDog({
-         name: this.dogName,
-         weight: this.dogWeight,
-         owner: this.ownerName
-       });
+      this.dogsService.addDog(this.dog);
    }
 
 }

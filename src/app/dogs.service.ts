@@ -1,4 +1,8 @@
+
+// Service - Dog data
+
 import { Injectable } from '@angular/core';
+import { Dog } from './dog';
 
 const DOGS = [
    { name: 'Rex', weight: 20, birthDate: new Date(2006, 2, 21), owner: 'Jack Daniels' },
@@ -13,12 +17,12 @@ export class DogsService {
 
    constructor() { }
 
-   getDogs() {
+   getDogs(): Array<any> {
       //Fix - Ex.1.3 - Add a getDogs method that will return the DOGS array
       return DOGS;
    }
 
-   addDog(dog) {
+   addDog(dog: Dog) {
       DOGS.push(dog);
    }
 
