@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
 
 import { FormsModule } from '@angular/forms';
 
@@ -24,7 +25,8 @@ import { DogsComponentComponent } from './dogs-component/dogs-component.componen
     MatToolbarModule,
     MatInputModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

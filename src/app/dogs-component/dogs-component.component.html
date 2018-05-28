@@ -1,3 +1,8 @@
-<li *ngFor="let dog of dogs; let idx = index">
-  <span>{{idx + 1}}) {{dog.name | uppercase}} - {{dog.weight}}kgs - {{dog.birthDate | date:"MM/dd/yy"}} - owned by {{ dog.owner }}</span>
-</li>
+<div class="flex-container">
+  <mat-card *ngFor="let dog of dogs; let idx = index">
+    <span>
+       {{idx + 1}}) {{dog.name | uppercase}} - {{dog.weight}}kgs - {{dog.birthDate | date:"MM/dd/yy"}} - owned by {{ dog.owner}}
+    </span>
+  </mat-card>
+
+</div>
