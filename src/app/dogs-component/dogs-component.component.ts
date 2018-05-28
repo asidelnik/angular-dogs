@@ -21,4 +21,8 @@ export class DogsComponentComponent implements OnInit {
    ngOnInit() {
    }
 
+   removeDog(index) {
+      this.dogs.splice(index, 1);
+   }
+
 }

@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { AddDogComponent } from './add-dog/add-dog.component';
@@ -19,7 +20,8 @@ import { DogsComponentComponent } from './dogs-component/dogs-component.componen
       MatInputModule,
       MatCheckboxModule,
       FormsModule,
-      MatCardModule
+      MatCardModule,
+      MatButtonModule
    ],
    declarations: [
       AppComponent,

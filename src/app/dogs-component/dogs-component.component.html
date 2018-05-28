@@ -3,6 +3,8 @@
     <span>
        {{idx + 1}}) {{dog.name | uppercase}} - {{dog.weight}}kgs - {{dog.birthDate | date:"MM/dd/yy"}} - owned by {{ dog.owner}}
     </span>
+    <br><br>
+    <button mat-button mat-stroked-button (click)="removeDog(idx)">Delete {{dog.name | uppercase}}</button>
   </mat-card>
 </div>
 
