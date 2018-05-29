@@ -26,7 +26,7 @@ export class AddDogComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitDog() {
+  servAddDog() {
     this.dogsService.addDog(this.dog);
   }
 

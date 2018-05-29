@@ -1,8 +1,8 @@
 <div class="content-container">
    <h3>Edit Dog</h3>
   <div class="form">
-    <!-- <h3>Current Dog: {{ dogName }}</h3>
-       <h3>Current Dog Owner: {{ ownerName }}</h3> -->
+    <h3>Current Dog: {{ dog.name }}</h3>
+       <h3>Current Dog Owner: {{ ownerName }}</h3>
     <mat-form-field>
       <input matInput [(ngModel)]="dog.name" placeholder="Dog Name">
       <!-- <input matInput [(ngModel)]="dog.name" placeholder="Dog Name" value="this.dogs[params.id].name"> -->
@@ -16,6 +16,6 @@
 
     <!-- <div *ngIf="dogWeight < 10" class="validation-error">{{dogName}} is underweight</div>   -->
 
-    <button mat-button (click)="submitEdit(params.id)" color="primary">Submit</button>
+    <button mat-button (click)="servEditDog(params.id)" color="primary">Submit</button>
   </div>
 </div>

@@ -11,7 +11,6 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class EditDogComponent implements OnInit {
    dogs = new Array<Dog>();
    dog: Dog = new Dog();
-   dateFormat = 'fullDate'
 
    constructor(private dogsService: DogsService, private route: ActivatedRoute) {
       this.dogs = dogsService.getDogs();
@@ -24,7 +23,7 @@ export class EditDogComponent implements OnInit {
       });
    }
 
-   submitEdit(id) {
+   servEditDog(id) {
       this.dogsService.editDog(id, this.dog);
    }
 }

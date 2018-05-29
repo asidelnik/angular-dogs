@@ -13,16 +13,13 @@
       <p>
         <strong>Owner:</strong> {{ dog.owner }}</p>
       <div class="button-row">
-        <button mat-button color="primary" (click)="removeDog(idx)">Remove</button>
+        <button mat-button color="primary" (click)="servRemoveDog(idx)">Remove</button>
         <button mat-button (click)="toggleDate()">
           <span *ngIf="dateFormat == 'shortDate'">+</span>
           <span *ngIf="dateFormat == 'fullDate'">-</span>
         </button>
         <button mat-button color="primary" [routerLink]="['edit-dog', idx]">Edit</button>
-        
-        
       </div>
-
     </mat-card-content>
 
   </mat-card>

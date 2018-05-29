@@ -6,32 +6,40 @@ import { Dog } from '../dog';
 
 
 @Component({
-  selector: 'app-dogs',
-  templateUrl: './dogs.component.html',
-  styleUrls: ['./dogs.component.scss']
+   selector: 'app-dogs',
+   templateUrl: './dogs.component.html',
+   styleUrls: ['./dogs.component.scss']
 })
+
 export class DogsComponent implements OnInit {
 
-  dogs = new Array<Dog>();
-  dateFormat = 'fullDate'
+   dogs = new Array<Dog>();
+   dateFormat: string = 'fullDate'
 
-  constructor(private dogsService : DogsService) {
-    this.dogs = dogsService.getDogs();
+   constructor(private dogsService: DogsService) {
+      this.dogs = dogsService.getDogs();
    }
 
-  ngOnInit() {
-  }
+   ngOnInit() {
+   }
 
-  removeDog(index) {
-    this.dogs.splice(index, 1);
-  }
+   servRemoveDog(index) {
+      this.dogsService.removeDog(index);
+   }
 
-//   editDog(idx) {
-
-//   }
-
-  toggleDate() {
-    this.dateFormat == 'fullDate' ? this.dateFormat = 'shortDate' : this.dateFormat = 'fullDate';
-  }
+   toggleDate() {
+      this.dateFormat == 'fullDate' ? this.dateFormat = 'shortDate' : this.dateFormat = 'fullDate';
+   }
 
 }
+
+
+
+//   Only the service can change the array. Other components call its methods
+   //   removeDog(index) {
+   //     this.dogs.splice(index, 1);
+   //   }
+
+   //   editDog(idx) {
+
+   //   }
