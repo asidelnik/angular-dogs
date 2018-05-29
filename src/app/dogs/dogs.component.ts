@@ -29,12 +29,8 @@ export class DogsComponent implements OnInit {
 
    toggleDate() {
       this.dateFormat == 'fullDate' ? this.dateFormat = 'shortDate' : this.dateFormat = 'fullDate';
+      
    }
-   dogsCompCreateDog(idx) {
-      // create the dog object
-      // push it to dogs edit comp
-   }
-
 }
 
 
