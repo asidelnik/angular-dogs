@@ -1,11 +1,12 @@
 <mat-toolbar>
   <span>AngularDogs</span>
   <span class="fill-remaining-space" color="accent"></span>
+  <button mat-button routerLink="/">Home</button>
+  <button mat-button routerLink="/add-dog">Add Dog</button>
+  <!-- <button mat-button routerLink="/edit-dog/:id">Edit Dog</button> -->
 </mat-toolbar>
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<!-- <h1>
+  Welcome to {{ title }}!
+</h1> -->
 
-<app-dogs></app-dogs>
-<app-add-dog></app-add-dog>
-  
+<router-outlet></router-outlet>

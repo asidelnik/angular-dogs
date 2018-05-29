@@ -3,5 +3,7 @@ export class Dog {
     public birthDate : Date;
     public weight : number;
     public owner : string;
-    constructor() {}
+    constructor() {
+
+    }
 }

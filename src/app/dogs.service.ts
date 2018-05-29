@@ -21,5 +21,7 @@ export class DogsService {
   addDog(dog : Dog) {
     DOGS.push(dog);
   }
-
+  editDog(id, dog : Dog) {
+   DOGS.splice(id, 1, dog);
+ }
 }

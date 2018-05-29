@@ -26,6 +26,10 @@ export class DogsComponent implements OnInit {
     this.dogs.splice(index, 1);
   }
 
+//   editDog(idx) {
+
+//   }
+
   toggleDate() {
     this.dateFormat == 'fullDate' ? this.dateFormat = 'shortDate' : this.dateFormat = 'fullDate';
   }
