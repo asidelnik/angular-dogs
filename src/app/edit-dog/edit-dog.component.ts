@@ -9,21 +9,27 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
    styleUrls: ['./edit-dog.component.scss']
 })
 export class EditDogComponent implements OnInit {
-   dogs = new Array<Dog>();
+   //dogs = new Array<Dog>();
+   chosenDog: Dog;
+   param: number;
    dog: Dog = new Dog();
 
    constructor(private dogsService: DogsService, private route: ActivatedRoute) {
-      this.dogs = dogsService.getDogs();
+      
    }
    
 
    ngOnInit() {
       this.route.params.subscribe(params => {
-         console.log("the id parameter is: " + params.id);
+         this.param = params.id;
+         this.chosenDog = this.dogsService.getDog(this.param);
+         // console.log("the id parameter is: " + this.param);
+         // console.log("this.chosen: ");
+         // console.log(this.chosenDog);
       });
    }
 
    servEditDog(id) {
-      this.dogsService.editDog(id, this.dog);
+      this.dogsService.editDog(this.param, this.chosenDog);
    }
 }

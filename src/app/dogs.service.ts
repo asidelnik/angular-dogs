@@ -18,12 +18,16 @@ export class DogsService {
       return DOGS;
    }
 
+   getDog(idx) {  // maybe edit to ): Dog {
+      return DOGS[idx];
+   }
+
    addDog(dog: Dog) {
       DOGS.push(dog);
    }
 
    editDog(id, dog: Dog) {
-      DOGS.splice(id, 1, dog);
+      DOGS[id] = dog;
    }
 
    removeDog(index) {
