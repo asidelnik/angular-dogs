@@ -1,5 +1,24 @@
+<!--  -->
+<!-- Filter form - input & button -->
+<mat-toolbar>
+  <div class="form">
+    <mat-form-field>
+      <input matInput [(ngModel)]="selectedDogName" placeholder="Dog Name">
+    </mat-form-field>
+    <button mat-button (click)="showSelected()" color="primary">Filter</button>
+  </div>
+</mat-toolbar>
+
+<!-- Filter form - input & button -->
+<mat-toolbar>
+  <p *ngIf="selectedDogName">Filtering dogs by name:
+    <strong>{{ selectedDogName }}</strong>
+  </p>
+</mat-toolbar>
+
+<!-- Cards -->
 <div class="cards-container" layout-wrap layout="row">
-  <mat-card flex="30" *ngFor="let dog of dogs; let idx = index" class="dog-card">
+  <mat-card flex="30" *ngFor="let dog of dogs; let idx = index;" class="dog-card">
     <mat-card-header>
       <mat-card-title>
         <h3>{{ idx + 1 }} - {{ dog.name }}</h3>
@@ -24,3 +43,6 @@
 
   </mat-card>
 </div>
+
+
+<!-- *ngIf='{{selectedDogName}} == {{dog.name}}' -->
