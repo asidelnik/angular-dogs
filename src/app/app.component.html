@@ -1,13 +1,13 @@
 <mat-toolbar>
-  <span>AngularDogs</span>
-  <button mat-button routerLink="/">Home</button>
-  <button mat-button routerLink="/add-dog">Add Dog</button>
-  <span class="spacer"></span>
-  <span class="score"></span>
+    <span>AngularDogs</span>
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/add-dog">Add Dog</button>
+    <app-score></app-score>
+    <span class="spacer"></span>
+    <span class="score"></span>
 </mat-toolbar>
-  <h1>
+<h1>
     Welcome to {{ title }}!
-  </h1>
+</h1>
 
-  <router-outlet></router-outlet>
-  
+<router-outlet></router-outlet>
