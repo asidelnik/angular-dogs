@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { DogsService } from '../dogs.service';
 import { Dog } from '../dog';
 import { ActivatedRoute, Router } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-dogs',
@@ -12,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./dogs.component.scss']
 })
 export class DogsComponent implements OnInit {
+
   selectedDog : Dog;
   dogs = new Array<Dog>();
   filterTerm : string;
@@ -25,8 +24,9 @@ export class DogsComponent implements OnInit {
     this.route.queryParams.subscribe(queryParams => {
       this.filterTerm = queryParams.name;
     });
-  }
+    }
 
+    
   onFilterChanged(filterString) {
     this.router.navigate(['.'], { queryParams: { name: filterString }});
   }

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, OnInit, Input, EventEmitter, Output, OnChanges, OnDestroy } from '@angular/core';
+=======
+import { Component, OnInit, Input, EventEmitter, Output, OnChanges } from '@angular/core';
+>>>>>>> 8d2819ceb8ee070b07fb5cd6a08411d143b738f5
 import { Dog } from '../dog';
 import Walk from '../walk';
 
