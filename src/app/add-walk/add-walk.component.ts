@@ -3,24 +3,32 @@ import { Dog } from '../dog';
 import Walk from '../walk';
 
 @Component({
-  selector: 'app-add-walk',
-  templateUrl: './add-walk.component.html',
-  styleUrls: ['./add-walk.component.scss']
+    selector: 'app-add-walk',
+    templateUrl: './add-walk.component.html',
+    styleUrls: ['./add-walk.component.scss']
 })
 export class AddWalkComponent implements OnInit {
 
-  @Input() dog : Dog = new Dog();
-  @Output() walkAdded : EventEmitter<Walk> = new EventEmitter();
-  description: string;
+    @Input() dog: Dog = new Dog();
+    @Output() walkAdded: EventEmitter<Walk> = new EventEmitter();
+    description: string;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  submit() {
-    let newWalk = new Walk(new Date(), this.description);
-    this.walkAdded.emit(newWalk);
-  }
+    submit() {
+        let newWalk = new Walk(new Date(), this.description);
+        this.walkAdded.emit(newWalk);
+    }
+
+    // getData() {
+    //     let dataSubject = new Subject<string>();
+    //     setTimeout(() => {
+    //         dataSubject.next("hi");
+    //     }, 5000);
+    //     return dataSubject.asObservable();
+    // }
 
 }

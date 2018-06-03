@@ -7,13 +7,13 @@ import { DogsService } from '../dogs.service';
     styleUrls: ['./score.component.scss']
 })
 export class ScoreComponent implements OnInit {
-    public score: number
+    public score: number;
     constructor(private dogsService: DogsService) { }
 
     ngOnInit() {
-        return this.score
+        this.dogsService.suscribeToSubject().subscribe((data) => {
+            this.score = data;
+            console.log(data)
+        });
     }
-
-    
-
 }
