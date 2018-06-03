@@ -10,9 +10,12 @@ export class FilterComponent implements OnInit {
   @Input() filterString : string;
   @Output() filterChanged : EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  constructor() {
+    console.log("filter string from constructor is: " + this.filterString);
+   }
 
   ngOnInit() {
+    console.log("filter string from ngOnInit is: " + this.filterString);
   }
 
   changeFilter() {
