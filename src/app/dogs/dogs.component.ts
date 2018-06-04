@@ -28,6 +28,8 @@ export class DogsComponent implements OnInit {
 
         this.dogsService.getDogs().subscribe((results) => {
             this.dogs = results;
+            console.log(this.dogs);
+            
         });
     }
 
@@ -36,9 +38,22 @@ export class DogsComponent implements OnInit {
         this.router.navigate(['.'], { queryParams: { name: filterString } });
     }
 
+    // removeDog(id) {
+    //     this.dogsService.removeDog(id);
+    //     this.dogsService.dogCountSubject.next();
+    // }
+
     removeDog(id) {
-        this.dogsService.removeDog(id);
-        this.dogsService.dogCountSubject.next();
+        // console.log("dog id: " + id);
+        
+        // this.dogsService.removeDog(id).subscribe((results) => {
+        //     // console.log("dogs comp subscribe results: ");
+        //     // console.log(results);
+            
+            
+        //     this.dogs = results;
+        // });
+
     }
 
     toggleDate() {

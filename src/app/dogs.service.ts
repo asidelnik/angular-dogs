@@ -30,13 +30,16 @@ export class DogsService {
         this.dogCountUpdated = this.dogCountSubject.asObservable();
     }
 
-    getDogs(): Observable<Dog[]> {
-        return this.http.get<Dog[]>('/api/dogs');
-    }
-
     // getDogs(): Dog[] {
     //     return DOGS;
     // }
+
+    getDogs(): Observable<Dog[]> {
+        let getDogsObser = this.http.get<Dog[]>('/api/dogs');     
+        console.log(getDogsObser);
+        return getDogsObser;
+        
+    }
 
     getDog(id: number) {
         return this.getDogs().find((dog) => dog.id == id);
@@ -52,14 +55,17 @@ export class DogsService {
         DOGS[existingDogIndex] = dog;
     }
 
-    removeDog(id) {
-        var existingDogIndex = this.getDogs().findIndex((dog) => dog.id == id);
-        DOGS.splice(existingDogIndex, 1);
-    }
-    
-    getDogs(): Observable<Dog[]> {
-        return this.http.get<Dog[]>('/api/dogs');
-    }
+    // removeDog(id) {
+    //     var existingDogIndex = this.getDogs().findIndex((dog) => dog.id == id);
+    //     DOGS.splice(existingDogIndex, 1);
+    // }
+
+    // removeDog(id): Observable<Dog[]> {
+    //     return this.http.delete<Dog[]>('/api/dogs/:id');
+
+    //     // var existingDogIndex = this.getDogs().findIndex((dog) => dog.id == id);
+    //     // DOGS.splice(existingDogIndex, 1);
+    // }
 
     addWalk(dog: Dog, walk: Walk) {
         dog.walks.push(walk);

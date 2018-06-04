@@ -12,6 +12,8 @@ const DOGS = [
 /* GET api listing. */
 router.get('/dogs', (req, res) => {
   res.send(JSON.stringify(DOGS));
+  
+  
 });
 
 router.post('/dogs', (req, res) => {
