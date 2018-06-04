@@ -18,38 +18,43 @@ export class DogsComponent implements OnInit {
 
 
     constructor(private dogsService: DogsService, private route: ActivatedRoute, private router: Router) {
-        // this.dogs = dogsService.getDogs();
+        //this.dogs = dogsService.getDogs();
+
+
     }
 
     ngOnInit() {
-        this.route.queryParams.subscribe(queryParams => {
-            this.filterTerm = queryParams.name;
-        });
+        this.setDogs();
+        // this.dogsService.getDogs()
+        // this.dogsService.dogsObservable.subscribe((results) => {
+        //     this.dogs = results;
+        // });
 
         // this.dogsService.getDogs().subscribe((results) => {
         //     this.dogs = results;
         // });
 
-        this.dogsService.dogsObservable.subscribe((results) => {
-            this.dogs = results;
+        this.route.queryParams.subscribe(queryParams => {
+            this.filterTerm = queryParams.name;
         });
     }
 
+    setDogs() {
+        this.dogsService.dogsObservable.subscribe((dogsArray) => {
+            this.dogs = dogsArray;
+            console.log(this.dogs);
+            console.log(dogsArray);
+            
+            
+        });
+    }
 
     onFilterChanged(filterString) {
         this.router.navigate(['.'], { queryParams: { name: filterString } });
     }
 
-    // removeDog(id) {
-    //     this.dogsService.removeDog(id);
-    //     this.dogsService.dogCountSubject.next();
-    // }
-
     removeDog(id) {
         this.dogsService.removeDog(id);
-        // .subscribe((response) => {            
-        //     this.dogs = response;
-        // });
     }
 
     toggleDate() {
@@ -64,6 +69,21 @@ export class DogsComponent implements OnInit {
         this.dogsService.addWalk(this.selectedDog, walk);
         this.dogsService.addScore(10);
     }
-
-
 }
+
+
+
+
+// this.dogsService.getDogs().subscribe((results) => {
+        //     this.dogs = results;
+        // });        
+
+            // removeDog(id) {
+    //     this.dogsService.removeDog(id);
+    //     this.dogsService.dogCountSubject.next();
+    // }
+
+
+            // .subscribe((response) => {            
+        //     this.dogs = response;
+        // });

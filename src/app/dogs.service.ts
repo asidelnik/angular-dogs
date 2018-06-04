@@ -39,15 +39,19 @@ export class DogsService {
         this.dogsObservable = this.dogsSubject.asObservable();      // observable - listener, when next is used, methods, subscribed to the observable, get notified. Only the service can change the array by calling .next()
     }
 
-    // getDogs(): Dog[] {
-    //     return DOGS;
-    // }
-
     getDogs(): void {  //: Observable<Dog[]> 
         this.http.get<Dog[]>('/api/dogs').subscribe((data) => {  // this .subscribe is different to the observable subscribe
+            // console.log("service - data:");
+            // console.log(data);
+            this.dogsObservable = this.dogsSubject.asObservable();
+            console.log(this.dogsObservable);
+            
             this.dogsSubject.next(data);
+
             this.dogsCount = data.length;
         })
+        // console.log("service - this.dogsSubject:");
+        // console.log(this.dogsSubject);
     }
 
     updateDog(dog: Dog) {
@@ -56,8 +60,6 @@ export class DogsService {
             //data = dog object
             this.getDogs();
         })
-        // how to update server/api/http array?
-        //DOGS[existingDogIndex] = dog;  // sort of replace
     }
 
     addDog(dog: Dog) {
@@ -93,6 +95,13 @@ export class DogsService {
 
 
 
+        // how to update server/api/http array?
+        //DOGS[existingDogIndex] = dog;  // sort of replace
+
+
+ // getDogs(): Dog[] {
+    //     return DOGS;
+    // }
 
         // updateDog(index: number, dog: Dog) {
         //     DOGS[existingDogIndex] = dog;  // sort of replace
