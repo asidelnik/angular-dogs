@@ -17,15 +17,24 @@ const DOGS = [
 @Injectable()
 export class DogsService {
     score: number = 0;
-    public scoreUpdated: Observable<number>;
     private scoreSubject: Subject<number>;
+    public scoreUpdated: Observable<number>;
 
     constructor() {
         this.scoreSubject = new Subject<number>();
         this.scoreUpdated = this.scoreSubject.asObservable();
     }
 
-    //scoreSubject.next
+    addScore(scoreIncrease) {
+        this.score += scoreIncrease;
+        this.scoreSubject.next(this.score);  // next enters subject into bus
+    }
+
+    suscribeToSubject() {
+        return this.scoreUpdated;
+    }
+
+    //////////////////////////////////////////////////////
 
     getDogs(): Dog[] {
         return DOGS;
@@ -48,18 +57,4 @@ export class DogsService {
     addWalk(dog: Dog, walk: Walk) {
         dog.walks.push(walk);
     }
-
-    addScore(scoreIncrease) {
-        this.score += scoreIncrease;
-        this.scoreSubject.next(this.score);
-
-        
-    }
-
-    suscribeToSubject(){
-        return this.scoreUpdated;
-    }
-
-
-
 }

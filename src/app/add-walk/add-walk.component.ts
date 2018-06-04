@@ -22,13 +22,4 @@ export class AddWalkComponent implements OnInit {
         let newWalk = new Walk(new Date(), this.description);
         this.walkAdded.emit(newWalk);
     }
-
-    // getData() {
-    //     let dataSubject = new Subject<string>();
-    //     setTimeout(() => {
-    //         dataSubject.next("hi");
-    //     }, 5000);
-    //     return dataSubject.asObservable();
-    // }
-
 }

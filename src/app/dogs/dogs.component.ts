@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DogsComponent implements OnInit {
 
-    selectedDog: Dog;
+    // selectedDog: Dog;
     dogs = new Array<Dog>();
     filterTerm: string;
     dateFormat = 'fullDate'
@@ -20,12 +20,20 @@ export class DogsComponent implements OnInit {
         this.dogs = dogsService.getDogs();
     }
 
+    //////////////////////////////////////////
+
+    handleAddWalk(dog, walk) {
+        this.dogsService.addWalk(dog, walk);
+        this.dogsService.addScore(1);
+    }
+
+    //////////////////////////////////////////
+
     ngOnInit() {
         this.route.queryParams.subscribe(queryParams => {
             this.filterTerm = queryParams.name;
         });
     }
-
 
     onFilterChanged(filterString) {
         this.router.navigate(['.'], { queryParams: { name: filterString } });
@@ -38,15 +46,4 @@ export class DogsComponent implements OnInit {
     toggleDate() {
         this.dateFormat == 'fullDate' ? this.dateFormat = 'shortDate' : this.dateFormat = 'fullDate';
     }
-
-    selectDog(dog) {
-        this.selectedDog = dog;
-    }
-
-    handleAddWalk(walk) {
-        this.dogsService.addWalk(this.selectedDog, walk);
-        this.dogsService.addScore(1);
-    }
-
-
 }
