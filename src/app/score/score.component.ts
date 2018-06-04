@@ -17,7 +17,7 @@ export class ScoreComponent implements OnInit {
         });
     }
 
-    ngOnDestroy() {
-        this.dogsService.scoreUpdated.unsubscribe();
-    }
+    // ngOnDestroy() {
+    //     this.dogsService.scoreUpdated.unsubscribe();
+    // }
 }
