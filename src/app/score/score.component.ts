@@ -16,6 +16,7 @@ export class ScoreComponent implements OnInit {
   ngOnInit() {
     this.score = this.dogsService.getScore();
     this.dogsCount = this.dogsService.getDogs().length;
+    
     this.dogsService.scoreUpdated.subscribe((newScore) => {
       this.score = newScore;
     });
