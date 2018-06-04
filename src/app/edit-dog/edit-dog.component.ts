@@ -24,14 +24,7 @@ export class EditDogComponent implements OnInit {
     }
 
     updateDog() {
-        var existingDogIndex = this.dogsService.dogsObservable.subscribe((results) => {
-            let index = results.findIndex((currentDog) => currentDog.id == this.dog.id);
-            this.dogsService.updateDog(index, this.dog);
-        });
-
-
-
-        this.router.navigate(['/']);
+            this.dogsService.updateDog(this.dog);
     }
 }
 

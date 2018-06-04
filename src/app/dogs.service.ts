@@ -46,32 +46,28 @@ export class DogsService {
         this.http.get<Dog[]>('/api/dogs').subscribe((data) => {  // this .subscribe is different to the observable subscribe
             this.dogsSubject.next(data);
         })
+    }
 
-
+    updateDog(dog: Dog) {
+        // this.http.put<Dog[]>()
+        this.http.put<any>('/api/dogs/' + dog.id, dog).subscribe((data) => {
+            //data = dog object
+            this.getDogs();
+        })
+        // how to update server/api/http array?
+        //DOGS[existingDogIndex] = dog;  // sort of replace
     }
 
     addDog(dog: Dog) {
-        dog.id = this.getDogs().subscribe((results) => {
-            return results.length + 1;
-        });
-        DOGS.push(dog);
+        this.http.post<any>('/api/dogs/' + dog.id, dog).subscribe((data) => {
+            this.getDogs();
+        })
     }
 
-    updateDog(index: number, dog: Dog) {
-
-        // how to update server/api/http array?
-        DOGS[existingDogIndex] = dog;  // sort of replace
-    }
-
-    removeDog(id): Observable<Dog[]> {
-        // var cdata = {
-        //     id: id,
-        // };
-
-        return this.http.delete<Dog[]>('/api/dogs/' + id);
-
-        // var existingDogIndex = this.getDogs().findIndex((dog) => dog.id == id);
-        // DOGS.splice(existingDogIndex, 1);
+    removeDog(id) {
+        this.http.delete<number>('/api/dogs/' + id).subscribe((data) => {
+            this.getDogs();
+        })
     }
 
     addWalk(dog: Dog, walk: Walk) {

@@ -24,7 +24,7 @@ router.post('/dogs', (req, res) => {
 router.put('/dogs/:id', (req, res) => {
     var dogIndex = DOGS.findIndex((dog) => dog.id.toString() == req.params.id.toString());
     dogId = DOGS[dogIndex].id;
-    DOGS[dogIndex] = req.body.dog;
+    DOGS[dogIndex] = req.body;
     DOGS[dogIndex].id = dogId;
     res.send(JSON.stringify(DOGS[dogIndex]));
 });

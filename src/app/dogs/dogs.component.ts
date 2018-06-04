@@ -46,9 +46,10 @@ export class DogsComponent implements OnInit {
     // }
 
     removeDog(id) {
-        this.dogsService.removeDog(id).subscribe((response) => {            
-            this.dogs = response;
-        });
+        this.dogsService.removeDog(id);
+        // .subscribe((response) => {            
+        //     this.dogs = response;
+        // });
     }
 
     toggleDate() {
