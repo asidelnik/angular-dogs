@@ -13,7 +13,7 @@ export class DogsComponent implements OnInit {
 
     selectedDog: Dog;
     dogs = new Array<Dog>();
-    filterTerm: string;
+    filterTerm: string = "";
     dateFormat = 'fullDate'
 
 
@@ -26,10 +26,12 @@ export class DogsComponent implements OnInit {
             this.filterTerm = queryParams.name;
         });
 
-        this.dogsService.getDogs().subscribe((results) => {
+        // this.dogsService.getDogs().subscribe((results) => {
+        //     this.dogs = results;
+        // });
+
+        this.dogsService.dogsObservable.subscribe((results) => {
             this.dogs = results;
-            console.log(this.dogs);
-            
         });
     }
 
@@ -44,16 +46,9 @@ export class DogsComponent implements OnInit {
     // }
 
     removeDog(id) {
-        // console.log("dog id: " + id);
-        
-        // this.dogsService.removeDog(id).subscribe((results) => {
-        //     // console.log("dogs comp subscribe results: ");
-        //     // console.log(results);
-            
-            
-        //     this.dogs = results;
-        // });
-
+        this.dogsService.removeDog(id).subscribe((response) => {            
+            this.dogs = response;
+        });
     }
 
     toggleDate() {
