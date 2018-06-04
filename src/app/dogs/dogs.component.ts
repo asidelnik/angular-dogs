@@ -24,11 +24,11 @@ export class DogsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.setDogs();
-        // this.dogsService.getDogs()
-        // this.dogsService.dogsObservable.subscribe((results) => {
-        //     this.dogs = results;
-        // });
+        // this.setDogs();
+        this.dogsService.getDogs()
+        this.dogsService.dogsObservable.subscribe((results) => {
+            this.dogs = results;
+        });
 
         // this.dogsService.getDogs().subscribe((results) => {
         //     this.dogs = results;
@@ -39,15 +39,15 @@ export class DogsComponent implements OnInit {
         });
     }
 
-    setDogs() {
-        this.dogsService.dogsObservable.subscribe((dogsArray) => {
-            this.dogs = dogsArray;
-            console.log(this.dogs);
-            console.log(dogsArray);
+    // setDogs() {
+    //     this.dogsService.dogsObservable.subscribe((dogsArray) => {
+    //         this.dogs = dogsArray;
+    //         console.log(this.dogs);
+    //         console.log(dogsArray);
             
             
-        });
-    }
+    //     });
+    // }
 
     onFilterChanged(filterString) {
         this.router.navigate(['.'], { queryParams: { name: filterString } });

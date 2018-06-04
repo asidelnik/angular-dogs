@@ -41,18 +41,29 @@ export class DogsService {
 
     getDogs(): void {  //: Observable<Dog[]> 
         this.http.get<Dog[]>('/api/dogs').subscribe((data) => {  // this .subscribe is different to the observable subscribe
-            // console.log("service - data:");
-            // console.log(data);
-            this.dogsObservable = this.dogsSubject.asObservable();
-            console.log(this.dogsObservable);
-            
+            //this.dogsObservable = this.dogsSubject.asObservable();  
             this.dogsSubject.next(data);
-
-            this.dogsCount = data.length;
+            //this.dogsCount = data.length;
         })
-        // console.log("service - this.dogsSubject:");
-        // console.log(this.dogsSubject);
     }
+
+    // getDogs(): void {  //: Observable<Dog[]> 
+    //     this.http.get<Dog[]>('/api/dogs').subscribe((data) => {  // this .subscribe is different to the observable subscribe
+    //         // console.log("service - data:");
+    //         // console.log(data);
+    //         this.dogsObservable = this.dogsSubject.asObservable();
+    //         console.log(this.dogsObservable);
+
+    //         this.dogsSubject.next(data);
+
+    //         this.dogsCount = data.length;
+    //     })
+
+    //     // .subscribe(
+    //     //     (data: Config) => this.config = { ...data }, // success path
+    //     //     error => this.error = error // error path
+    //     // );
+    // }
 
     updateDog(dog: Dog) {
         // this.http.put<Dog[]>()
