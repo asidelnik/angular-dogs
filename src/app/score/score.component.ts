@@ -2,28 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { DogsService } from '../dogs.service';
 
 @Component({
-  selector: 'app-score',
-  templateUrl: './score.component.html',
-  styleUrls: ['./score.component.scss']
+    selector: 'app-score',
+    templateUrl: './score.component.html',
+    styleUrls: ['./score.component.scss']
 })
 export class ScoreComponent implements OnInit {
-  
-  score : number;
-  dogsCount : number;
 
-  constructor(private dogsService : DogsService) { }
+    score: number;
+    dogsCount: number;
 
-  ngOnInit() {
-    this.score = this.dogsService.getScore();
-    this.dogsCount = this.dogsService.getDogs().length;
-    
-    this.dogsService.scoreUpdated.subscribe((newScore) => {
-      this.score = newScore;
-    });
+    constructor(private dogsService: DogsService) { }
 
-    this.dogsService.dogCountUpdated.subscribe(() => {
-      this.dogsCount = this.dogsService.getDogs().length;
-    })
-  }
+    ngOnInit() {
+        this.score = this.dogsService.getScore();
+        this.dogsCount = this.dogsService.getDogsCount();
+
+        // this.dogsService.scoreUpdated.subscribe((newScore) => {
+        //     this.score = newScore;
+        // });
+
+        // this.dogsService.dogCountUpdated.subscribe(() => {
+        //     this.dogsCount = this.dogsService.getDogs().length;
+        // })
+    }
 
 }

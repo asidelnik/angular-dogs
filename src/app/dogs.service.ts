@@ -17,6 +17,7 @@ const DOGS = [
 export class DogsService {
 
     score: number = 0;
+    dogsCount: number = 0;
     private scoreSubject: Subject<number>;
     public scoreUpdated: Observable<number>;
 
@@ -45,6 +46,7 @@ export class DogsService {
     getDogs(): void {  //: Observable<Dog[]> 
         this.http.get<Dog[]>('/api/dogs').subscribe((data) => {  // this .subscribe is different to the observable subscribe
             this.dogsSubject.next(data);
+            this.dogsCount = data.length;
         })
     }
 
@@ -81,6 +83,10 @@ export class DogsService {
 
     getScore() {
         return this.score;
+    }
+
+    getDogsCount() {
+        return this.dogsCount;
     }
 
 }
