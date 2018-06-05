@@ -21,7 +21,7 @@ router.post('/dogs', (req, res) => {
     res.send(JSON.stringify(dog)); 
 });
 
-// Edit dog route
+// Edit dog - route
 router.put('/dogs/:id', (req, res) => {
     var dogIndex = DOGS.findIndex((dog) => dog.id.toString() == req.params.id.toString());
     dogId = DOGS[dogIndex].id;
@@ -33,12 +33,13 @@ router.put('/dogs/:id', (req, res) => {
     res.send(JSON.stringify(DOGS[dogIndex]));
 });
 
-// Add dog walk route
-router.put('/dogs/addWalks/:id', (req, res) => {
+// Edit dog by adding walk - route
+router.put('/dogs/addWalk/:id', (req, res) => {
     var dogIndex = DOGS.findIndex((dog) => dog.id.toString() == req.params.id.toString());
-    dogId = DOGS[dogIndex].id;
-    DOGS[dogIndex] = req.body;
-    DOGS[dogIndex].id = dogId;
+    //dogId = DOGS[dogIndex].id;
+    DOGS[dogIndex].walks.push(req.body)
+    //DOGS[dogIndex] = req.body;
+    //DOGS[dogIndex].id = dogId;
     res.send(JSON.stringify(DOGS[dogIndex]));
 });
 

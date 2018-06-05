@@ -69,20 +69,20 @@ export class DogsService {
         })
     }
 
-    addWalk(dog: Dog, walk: Walk) {
-        this.http.put<any>('/api/dogs/addWalks/' + dog.id, walk).subscribe((data) => { //{ dog: updatedDog }
-            this.getDogs();
+    addWalk(id: number, walk: Walk) {
+        this.http.put<any>('/api/dogs/addWalk/' + id, walk).subscribe((data) => { //{ dog: updatedDog }
+            this.scoreSubject.next(data);
+            // this.getDogs();
         })
-
         // dog.walks.push(walk);
     }
 
 
 
-    addScore(increment) {
-        this.score += increment;
-        this.scoreSubject.next(this.score);
-    }
+    // addScore(increment) {
+    //     this.score += increment;
+    //     this.scoreSubject.next(this.score);
+    // }
 
     // getScore() {
     //     return this.score;

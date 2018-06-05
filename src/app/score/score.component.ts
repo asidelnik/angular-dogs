@@ -22,7 +22,9 @@ export class ScoreComponent implements OnInit {
         });
 
         this.dogsService.scoreUpdated.subscribe((results) => {
-            this.dogsCount = results;
+            if(results) {
+                this.score++;
+            }
         });
 
     }

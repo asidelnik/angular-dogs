@@ -54,7 +54,7 @@ export class DogsComponent implements OnInit {
         // console.log("dogs.comp - walk:");
         // console.log(walk);
 
-        this.dogsService.addWalk(this.selectedDog, walk);
-        this.dogsService.addScore(10);
+        this.dogsService.addWalk(this.selectedDog.id, walk);
+        // this.dogsService.addScore(10);
     }
 }
