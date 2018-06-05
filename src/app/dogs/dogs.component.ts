@@ -19,35 +19,18 @@ export class DogsComponent implements OnInit {
 
     constructor(private dogsService: DogsService, private route: ActivatedRoute, private router: Router) {
         //this.dogs = dogsService.getDogs();
-
-
     }
 
     ngOnInit() {
-        // this.setDogs();
         this.dogsService.getDogs()
         this.dogsService.dogsObservable.subscribe((results) => {
             this.dogs = results;
         });
 
-        // this.dogsService.getDogs().subscribe((results) => {
-        //     this.dogs = results;
-        // });
-
         this.route.queryParams.subscribe(queryParams => {
             this.filterTerm = queryParams.name;
         });
     }
-
-    // setDogs() {
-    //     this.dogsService.dogsObservable.subscribe((dogsArray) => {
-    //         this.dogs = dogsArray;
-    //         console.log(this.dogs);
-    //         console.log(dogsArray);
-            
-            
-    //     });
-    // }
 
     onFilterChanged(filterString) {
         this.router.navigate(['.'], { queryParams: { name: filterString } });
@@ -66,6 +49,9 @@ export class DogsComponent implements OnInit {
     }
 
     handleAddWalk(walk) {
+        console.log("dogs.comp - walk:");
+        console.log(walk);
+
         this.dogsService.addWalk(this.selectedDog, walk);
         this.dogsService.addScore(10);
     }
@@ -86,4 +72,22 @@ export class DogsComponent implements OnInit {
 
             // .subscribe((response) => {            
         //     this.dogs = response;
+        // });
+
+
+
+            // setDogs() {
+    //     this.dogsService.dogsObservable.subscribe((dogsArray) => {
+    //         this.dogs = dogsArray;
+    //         console.log(this.dogs);
+    //         console.log(dogsArray);
+
+
+    //     });
+    // }
+
+
+
+        // this.dogsService.getDogs().subscribe((results) => {
+        //     this.dogs = results;
         // });

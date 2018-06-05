@@ -1,7 +1,7 @@
 <div class="content-container">
     <div class="form">
-        <h3>Current Dog: {{ dogName }}</h3>
-        <h3>Current Dog Owner: {{ ownerName }}</h3>
+        <h3>Current Dog: {{ dog.name }}</h3>
+        <h3>Current Dog Owner: {{ dog.owner }}</h3>
         <mat-form-field>
             <input matInput [(ngModel)]="dog.name" placeholder="Dog Name">
           </mat-form-field>
@@ -13,7 +13,7 @@
           </mat-form-field>
           
           <div *ngIf="dogWeight < 10" class="validation-error">{{dogName}} is underweight</div>  
-          <button mat-button (click)="submitDog()" color="primary">Submit</button>
+          <button mat-button (click)="submitDog()" color="primary" routerLink="/">Submit</button>  <!-- this.router.navigate(['./SomewhereElse']);  routerLink="/"-->
     </div>
 
     <img class="img-dog" src="{{ imageUrl }}" />

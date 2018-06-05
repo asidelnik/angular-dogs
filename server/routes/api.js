@@ -16,6 +16,8 @@ router.get('/dogs', (req, res) => {
 
 router.post('/dogs', (req, res) => {
     var dog = req.body.dog;
+    console.log(dog);
+    
     dog.id = generateId();
     DOGS.push(dog);
     res.send(JSON.stringify(dog)); 

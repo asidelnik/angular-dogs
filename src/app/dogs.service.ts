@@ -47,24 +47,6 @@ export class DogsService {
         })
     }
 
-    // getDogs(): void {  //: Observable<Dog[]> 
-    //     this.http.get<Dog[]>('/api/dogs').subscribe((data) => {  // this .subscribe is different to the observable subscribe
-    //         // console.log("service - data:");
-    //         // console.log(data);
-    //         this.dogsObservable = this.dogsSubject.asObservable();
-    //         console.log(this.dogsObservable);
-
-    //         this.dogsSubject.next(data);
-
-    //         this.dogsCount = data.length;
-    //     })
-
-    //     // .subscribe(
-    //     //     (data: Config) => this.config = { ...data }, // success path
-    //     //     error => this.error = error // error path
-    //     // );
-    // }
-
     updateDog(dog: Dog) {
         // this.http.put<Dog[]>()
         this.http.put<any>('/api/dogs/' + dog.id, dog).subscribe((data) => {
@@ -74,7 +56,8 @@ export class DogsService {
     }
 
     addDog(dog: Dog) {
-        this.http.post<any>('/api/dogs/' + dog.id, dog).subscribe((data) => {
+        this.http.post<Dog>('/api/dogs/' + dog.id, dog).subscribe((data) => {  // ('/api/dogs/' + dog.id, dog)
+            // return to homePage
             this.getDogs();
         })
     }
@@ -103,6 +86,29 @@ export class DogsService {
     }
 
 }
+
+
+
+
+
+
+// getDogs(): void {  //: Observable<Dog[]> 
+    //     this.http.get<Dog[]>('/api/dogs').subscribe((data) => {  // this .subscribe is different to the observable subscribe
+    //         // console.log("service - data:");
+    //         // console.log(data);
+    //         this.dogsObservable = this.dogsSubject.asObservable();
+    //         console.log(this.dogsObservable);
+
+    //         this.dogsSubject.next(data);
+
+    //         this.dogsCount = data.length;
+    //     })
+
+    //     // .subscribe(
+    //     //     (data: Config) => this.config = { ...data }, // success path
+    //     //     error => this.error = error // error path
+    //     // );
+    // }
 
 
 
