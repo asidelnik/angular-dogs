@@ -29,24 +29,3 @@ export class EditDogComponent implements OnInit {
         
     }
 }
-
-
-
-
-
-// ngOnInit() {
-
-//     // getDog(id: number): Dog {
-//     //     return this.dogsObservable.subscribe((results) => {
-//     //         let dogs = results;
-//     //         return dogs.find((dog) => dog.id == id);
-//     //     });
-//     // }
-//     this.route.params.subscribe(params => {
-//         this.dogsService.dogsObservable.subscribe((results) => {
-//             //         let dogs = results;
-//             this.dog = results.find((dog) => dog.id == params.id);
-
-//             // this.dogsService.getDog(params.id);
-//         });
-//     }

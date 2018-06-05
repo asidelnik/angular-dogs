@@ -72,35 +72,6 @@ export class DogsService {
     addWalk(id: number, walk: Walk) {
         this.http.put<any>('/api/dogs/addWalk/' + id, walk).subscribe((data) => { //{ dog: updatedDog }
             this.scoreSubject.next(data);
-            // this.getDogs();
         })
-        // dog.walks.push(walk);
     }
-
-
-
-    // addScore(increment) {
-    //     this.score += increment;
-    //     this.scoreSubject.next(this.score);
-    // }
-
-    // getScore() {
-    //     return this.score;
-    // }
-
-    // getDogsCount() {
-    //     return this.dogsCount;
-    // }
-
 }
-
-
-// throwing error in subscribe
-//, (err) => {
-        //     console.log(err);
-        //     ///send info for other comp here
-        //     //output
-        //     //amother subject
-        //     //just tell the service
-        //     myService.isTherAnError = err;
-        // })

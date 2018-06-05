@@ -14,8 +14,6 @@ export class ScoreComponent implements OnInit {
     constructor(private dogsService: DogsService) { }
 
     ngOnInit() {
-        // this.score = this.dogsService.getScore();
-        // this.dogsCount = this.dogsService.getDogsCount();
 
         this.dogsService.dogsObservable.subscribe((results) => {
             this.dogsCount = results.length;
@@ -26,6 +24,5 @@ export class ScoreComponent implements OnInit {
                 this.score++;
             }
         });
-
     }
 }

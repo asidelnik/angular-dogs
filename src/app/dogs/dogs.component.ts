@@ -25,10 +25,8 @@ export class DogsComponent implements OnInit {
         this.dogsService.getDogs()
         this.dogsService.dogsObservable.subscribe((results) => {
             this.dogs = results;
-            // console.log(this.dogs);
         });
         
-
         this.route.queryParams.subscribe(queryParams => {
             this.filterTerm = queryParams.name;
         });
@@ -51,10 +49,6 @@ export class DogsComponent implements OnInit {
     }
 
     handleAddWalk(walk) {
-        // console.log("dogs.comp - walk:");
-        // console.log(walk);
-
         this.dogsService.addWalk(this.selectedDog.id, walk);
-        // this.dogsService.addScore(10);
     }
 }
