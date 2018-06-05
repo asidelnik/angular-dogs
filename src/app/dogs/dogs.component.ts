@@ -56,38 +56,3 @@ export class DogsComponent implements OnInit {
         this.dogsService.addScore(10);
     }
 }
-
-
-
-
-// this.dogsService.getDogs().subscribe((results) => {
-        //     this.dogs = results;
-        // });        
-
-            // removeDog(id) {
-    //     this.dogsService.removeDog(id);
-    //     this.dogsService.dogCountSubject.next();
-    // }
-
-
-            // .subscribe((response) => {            
-        //     this.dogs = response;
-        // });
-
-
-
-            // setDogs() {
-    //     this.dogsService.dogsObservable.subscribe((dogsArray) => {
-    //         this.dogs = dogsArray;
-    //         console.log(this.dogs);
-    //         console.log(dogsArray);
-
-
-    //     });
-    // }
-
-
-
-        // this.dogsService.getDogs().subscribe((results) => {
-        //     this.dogs = results;
-        // });
