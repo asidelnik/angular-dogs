@@ -9,14 +9,14 @@ import { ActivatedRoute, Router } from '@angular/router';
     styleUrls: ['./edit-dog.component.scss']
 })
 export class EditDogComponent implements OnInit {
-
-    dog: Dog;
+    dog: Dog = new Dog();
 
     constructor(private dogsService: DogsService, private route: ActivatedRoute, private router: Router) { }
 
 
     ngOnInit() {
         this.route.params.subscribe(params => {
+            this.dogsService.getDogs();
             this.dogsService.dogsObservable.subscribe((results) => {
                 this.dog = results.find((dog) => dog.id == params.id);
             });
@@ -24,7 +24,9 @@ export class EditDogComponent implements OnInit {
     }
 
     updateDog() {
-            this.dogsService.updateDog(this.dog);
+        this.dogsService.updateDog(this.dog);
+        this.router.navigate(['/']);
+        
     }
 }
 

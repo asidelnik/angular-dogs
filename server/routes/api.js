@@ -7,7 +7,7 @@ const DOGS = [
   {id: 2, name: 'Chuck', weight: 28, birthDate: new Date(2015, 5, 6), owner: 'Sarah Abrahamson', walks: []},
   {id: 3, name: 'Barkley', weight: 4, birthDate: new Date(2012, 3, 15), owner: 'Lara Croft', walks: []},
   {id: 4, name: 'Prince', weight: 65, birthDate: new Date(2017, 5, 4), owner: 'Jerry Seinfeld', walks: []}
-]
+];
 
 /* GET api listing. */
 router.get('/dogs', (req, res) => {
@@ -16,14 +16,25 @@ router.get('/dogs', (req, res) => {
 
 router.post('/dogs', (req, res) => {
     var dog = req.body.dog;
-    console.log(dog);
-    
     dog.id = generateId();
     DOGS.push(dog);
     res.send(JSON.stringify(dog)); 
 });
 
+// Edit dog route
 router.put('/dogs/:id', (req, res) => {
+    var dogIndex = DOGS.findIndex((dog) => dog.id.toString() == req.params.id.toString());
+    dogId = DOGS[dogIndex].id;
+    DOGS[dogIndex] = req.body;
+    DOGS[dogIndex].id = dogId;
+
+    // .send - send data to app gotten from db/api in this case
+    // JSON.stringify - changes JSON to string to send to app & later returns it to JSON or object
+    res.send(JSON.stringify(DOGS[dogIndex]));
+});
+
+// Add dog walk route
+router.put('/dogs/addWalks/:id', (req, res) => {
     var dogIndex = DOGS.findIndex((dog) => dog.id.toString() == req.params.id.toString());
     dogId = DOGS[dogIndex].id;
     DOGS[dogIndex] = req.body;

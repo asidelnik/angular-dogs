@@ -16,8 +16,8 @@ const DOGS = [
 @Injectable()
 export class DogsService {
 
-    score: number = 0;
-    dogsCount: number = 0;
+    score: number;
+    dogsCount: number;
     private scoreSubject: Subject<number>;
     public scoreUpdated: Observable<number>;
 
@@ -36,7 +36,9 @@ export class DogsService {
         this.dogCountUpdated = this.dogCountSubject.asObservable();
 
         this.dogsSubject = new Subject<Dog[]>();                // array
-        this.dogsObservable = this.dogsSubject.asObservable();      // observable - listener, when next is used, methods, subscribed to the observable, get notified. Only the service can change the array by calling .next()
+        this.dogsObservable = this.dogsSubject.asObservable();
+        
+        // observable - listener, when next is used, methods, subscribed to the observable, get notified. Only the service can change the array by calling .next()
     }
 
     getDogs(): void {  //: Observable<Dog[]> 
@@ -47,16 +49,16 @@ export class DogsService {
         })
     }
 
-    updateDog(dog: Dog) {
+    updateDog(updatedDog: Dog) {
         // this.http.put<Dog[]>()
-        this.http.put<any>('/api/dogs/' + dog.id, dog).subscribe((data) => {
+        this.http.put<any>('/api/dogs/' + updatedDog.id, updatedDog).subscribe((data) => { //{ dog: updatedDog }
             //data = dog object
             this.getDogs();
         })
     }
 
     addDog(newDog: Dog) {
-        this.http.post<Dog>('/api/dogs', { dog: newDog }).subscribe((data) => {  // ('/api/dogs/' + dog.id, dog)
+        this.http.post<Dog>('/api/dogs', { dog: newDog }).subscribe((data) => {
             this.getDogs();
         })
     }
@@ -68,20 +70,37 @@ export class DogsService {
     }
 
     addWalk(dog: Dog, walk: Walk) {
-        dog.walks.push(walk);
+        this.http.put<any>('/api/dogs/addWalks/' + dog.id, walk).subscribe((data) => { //{ dog: updatedDog }
+            this.getDogs();
+        })
+
+        // dog.walks.push(walk);
     }
+
+
 
     addScore(increment) {
         this.score += increment;
         this.scoreSubject.next(this.score);
     }
 
-    getScore() {
-        return this.score;
-    }
+    // getScore() {
+    //     return this.score;
+    // }
 
-    getDogsCount() {
-        return this.dogsCount;
-    }
+    // getDogsCount() {
+    //     return this.dogsCount;
+    // }
 
 }
+
+
+// throwing error in subscribe
+//, (err) => {
+        //     console.log(err);
+        //     ///send info for other comp here
+        //     //output
+        //     //amother subject
+        //     //just tell the service
+        //     myService.isTherAnError = err;
+        // })

@@ -28,6 +28,7 @@ export class AddDogComponent implements OnInit {
   }
 
   submitDog() {
+    this.dog.birthDate = new Date();
     this.dogsService.addDog(this.dog);
     this.dogsService.dogCountSubject.next();
   }
