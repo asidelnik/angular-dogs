@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DogsService } from '../dogs.service';
 import { Dog } from '../dog';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-dog',
@@ -31,8 +30,5 @@ export class AddDogComponent implements OnInit {
   submitDog() {
     this.dogsService.addDog(this.dog);
     this.dogsService.dogCountSubject.next();
-    //   this.router.navigate(['/']);
-    //   this.router.navigate(['.'], { queryParams: { name: filterString } });
   }
-
 }

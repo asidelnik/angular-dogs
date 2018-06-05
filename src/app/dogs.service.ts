@@ -55,9 +55,8 @@ export class DogsService {
         })
     }
 
-    addDog(dog: Dog) {
-        this.http.post<Dog>('/api/dogs/' + dog.id, dog).subscribe((data) => {  // ('/api/dogs/' + dog.id, dog)
-            // return to homePage
+    addDog(newDog: Dog) {
+        this.http.post<Dog>('/api/dogs', { dog: newDog }).subscribe((data) => {  // ('/api/dogs/' + dog.id, dog)
             this.getDogs();
         })
     }
